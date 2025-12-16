@@ -2,14 +2,15 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>K&Z Precision Painting</title>
+
   <title>K&Z Precision Painting</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
 
-<header>
+<header><h1>K&Z Precision Painting</h1>
   <div class="logo">
     <h1>K&Z Precision Painting</h1>
     <p>Reliable • Neat • On-Time</p>
@@ -27,7 +28,7 @@
 
 <section class="hero" id="home">
   <div class="hero-content">
-    <h2>Premium Painting With a Clean, Precise Finish</h2>
+    <a class="btn btn-outline" href="tel:0435839099">Call 0435 839 099</a>
     <p>Residential & Commercial painting — quality workmanship you can see.</p>
 
     <div class="hero-actions">
@@ -77,8 +78,8 @@
     <div class="card">
       <h3>Commercial Painting</h3>
       <p>Offices, shops, and small commercial projects — done on schedule.</p>
-    </div>
-  </div>
+    </div><p><strong>Phone:</strong> <a href="tel:0435839099">0435 839 099</a></p>
+  </div><a href="https://wa.me/61435839099" target="_blank">Message us on WhatsApp</a>
 </section>
 
 <section class="section section-alt" id="contact">
@@ -93,11 +94,61 @@
       <p class="small-text">Available for residential & commercial painting jobs.</p>
     </div>
 
-    <form class="contact-form" action="#" method="post">
-      <div class="form-group">
-        <label for="name">Full Name</label>
-        <input id="name" name="name" type="text" placeholder="Your name" required />
-      </div>
+    <<form class="contact-form" id="waForm">
+  <div class="form-group">
+    <label for="name">Full Name</label>
+    <input id="name" name="name" type="text" placeholder="Your name" required />
+  </div>
+
+  <div class="form-group">
+    <label for="phone">Phone Number</label>
+    <input id="phone" name="phone" type="tel" placeholder="e.g. 0435 839 099" required />
+  </div>
+
+  <div class="form-group">
+    <label for="service">Service</label>
+    <select id="service" name="service" required>
+      <option value="">Select a service</option>
+      <option>Interior Painting</option>
+      <option>Exterior Painting</option>
+      <option>Commercial Painting</option>
+      <option>Touch-Ups / Repairs</option>
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label for="message">Message</label>
+    <textarea id="message" name="message" rows="4" placeholder="Tell us about your project..." required></textarea>
+  </div>
+
+  <button class="btn" type="submit">Send to WhatsApp</button>
+  <p class="small-text">This will open WhatsApp with your message ready to send.</p>
+</form>
+
+<script>
+  document.getElementById("waForm").addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    const name = document.getElementById("name").value.trim();
+    const phone = document.getElementById("phone").value.trim();
+    const service = document.getElementById("service").value.trim();
+    const message = document.getElementById("message").value.trim();
+
+    const text =
+      `New Quote Request%0A` +
+      `Name: ${encodeURIComponent(name)}%0A` +
+      `Phone: ${encodeURIComponent(phone)}%0A` +
+      `Service: ${encodeURIComponent(service)}%0A` +
+      `Message: ${encodeURIComponent(message)}`;
+
+    
+    const whatsappNumber = "61435839099";
+
+    const url = `https://wa.me/${whatsappNumber}?text=${text}`;
+    window.open(url, "_blank");
+  });
+</script>
+
 
       <div class="form-group">
         <label for="phone">Phone Number</label>
@@ -106,7 +157,8 @@
 
       <div class="form-group">
         <label for="service">Service</label>
-        <select id="service" name="service" required>
+       <a class="whatsapp-float" href="https://wa.me/61435839099" target="_blank" aria-label="Chat on WhatsApp">
+
           <option value="">Select a service</option>
           <option>Interior Painting</option>
           <option>Exterior Painting</option>
@@ -133,4 +185,5 @@
 
 <footer>
   <p>© 2025 K&Z Precision Painting • Phone: 0435 839 099</p>
+
 </footer>
